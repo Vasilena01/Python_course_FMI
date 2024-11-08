@@ -53,3 +53,21 @@ def spam(n):
 @served_by("sir")
 def eggs(n):
     print("I would like {} eggs".format(n))
+    
+try:
+    source_file = open("dani_test.py", 'r')
+    buffer = []
+    try:
+        buffer = source_file.readlines()
+    finally:
+        source_file.close()
+    target_file = open("Homework1.py", 'w')
+    try:
+        for line in reversed(buffer):
+            target_file.write(line)
+    finally:
+        target_file.close()
+except IOError:
+ print("Something broke")
+finally:
+    print("Yayy")
